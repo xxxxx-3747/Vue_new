@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .app div {
+            margin-top: 10px;
+            position: absolute;
+        }
+    </style>
+    <script src="../vue.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+    <input type="button" value="真好看" @click="play">
+    <input type="button" value="我说的" @click="stop">
+    <div>{{msg}}</div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            msg: 'cx真的好好看啊~~',
+            timeId: null
+        },
+        methods: {
+            play() {
+                if (this.timeId) {
+                    return;
+                }
+                //设置定时任务自动滚动
+                this.timeId = setInterval(() => {
+                    var start = this.msg.substring(0, 1);
+                    var end = this.msg.substring(1);
+                    this.msg = end + start;
+                }, 500)
+            },
+            stop() {
+                clearInterval(this.timeId);
+                this.timeId = null;
+            }
+        }
+
+
+    })
+</script>
+
+</body>
+</html>

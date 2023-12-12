@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="app">
+    <input type="button" value="按钮" :title="msg+'123'">
+</div>
+
+<script src="../vue.min.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            msg: '我是一个自定义按钮'
+        },
+        methods: {}
+    });
+</script>
+
+</body>
+</html>
