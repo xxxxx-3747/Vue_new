@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="app">
+    <p v-for="(user,i) in user"> 用户的id是：{{user.id}},用户的姓名是：{{user.name}},用户的索引是{{i}}</p>
+</div>
+
+<script src="../vue.min.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            user: [
+                {id: 1, name: 'cc1'},
+                {id: 2, name: 'cc2'},
+                {id: 3, name: 'cc3'},
+                {id: 4, name: 'cc4'}
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>

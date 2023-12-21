@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="app">
+    <p v-for="(item,i) in list">数值是：{{item}}，索引值是{{i}}</p>
+</div>
+
+<script src="../vue.min.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            list: [1, 2, 3, 4, 5]
+        }
+    });
+</script>
+
+</body>
+</html>

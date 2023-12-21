@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="app">
+    <p v-for="(val,key,i) in user">值是：{{key}},名称是：{{val}},索引是：{{i}} </p>
+
+<!--    <p v-for="(val, key, i) in user">值是： {{ val }} -&#45;&#45; 键是： {{key}} &#45;&#45; 索引： {{i}}</p>-->
+</div>
+
+<script src="../vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            user: {
+                id: 1,
+                name: 'xx',
+                age: '11'
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
