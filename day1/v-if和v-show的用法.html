@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="app">
+
+    <input type="button" value="切换" @click="btnClick">
+    <p v-if="flag">{{msg}}</p>
+    <p v-text="msg1" v-show="flag"></p>
+</div>
+
+<script src="../vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            flag:true,
+            msg:'我是一个p标签',
+            msg1:'我是一个p标签'
+        },
+        methods: {
+            btnClick(){
+                this.flag=!this.flag;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="app">
+    <label>
+        id:
+        <input type="text" v-model="id">
+    </label>
+    <label>
+        name:
+        <input type="text" v-model="name">
+    </label>
+    <input type="button" value="提交" @click="btnClick">
+
+    <p v-for="item in user" :key="item.id">
+        <input type="checkbox">
+        id是：{{item.id}}------姓名是：{{item.name}}
+    </p>
+</div>
+</body>
+
+
+<script src="../vue.min.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            id: '',
+            name: '',
+            user: [
+                {id: 1, name: 'xx1'},
+                {id: 2, name: 'xx2'},
+                {id: 3, name: 'xx3'},
+                {id: 4, name: 'xx4'}
+            ]
+        },
+        methods: {
+            btnClick() {
+                this.user.unshift({id: this.id, name: this.name});
+                this.id = '';
+                this.name = '';
+            }
+        }
+    });
+</script>
+</html>

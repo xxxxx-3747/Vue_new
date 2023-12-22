@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .app p {
+            font-size: 34px;
+        }
+
+        .divider {
+            margin: 10px 0;
+            background-color: #337ab7;
+            height: 3px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app">
+    <!--    <h1 class="bg-primary">添加商品</h1>-->
+    <p class="bg-primary">添加商品</p>
+    <!--    创建操作-->
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputName2">ID</label>
+            <input type="text" class="form-control" id="exampleInputName2" v-model="id">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">NAME</label>
+            <input type="text" class="form-control" id="exampleInputEmail2" v-model="name">
+        </div>
+        <button type="button" class="btn btn-default btn-primary" @click="btnClick">提交</button>
+    </form>
+
+    <div class="divider">
+
+    </div>
+
+
+    <!--    创建表格-->
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>Ctime</td>
+            <td>Operation</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in car">
+            <th>{{item.id}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.ctime}}</th>
+            <th><a href="#">删除</a></th>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script src="js/vue.min.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            id: '',
+            name: '',
+            keywords:'',
+            car: [
+                {id: 1, name: '西瓜', ctime: new Date()},
+                {id: 2, name: '苹果', ctime: new Date()},
+                {id: 3, name: '香蕉', ctime: new Date()},
+                {id: 4, name: '猕猴桃', ctime: new Date()},
+                {id: 5, name: '哈密瓜', ctime: new Date()}
+            ]
+
+        },
+        methods: {
+
+            //添加
+            btnClick() {
+                this.car.push({id: this.id, name: this.name, ctime: new Date()});
+                this.id = '';
+                this.name = '';
+                // console.log('xxx');
+            },
+
+            //删除
+            del(){
+
+    }
+
+        }
+    });
+</script>
+
+</body>
+</html>
